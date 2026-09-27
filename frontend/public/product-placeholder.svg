@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-labelledby="title desc">
+  <title id="title">Sample skincare product illustration</title>
+  <desc id="desc">A cream moisturizer jar with a botanical sprig.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4e9dd"/><stop offset="1" stop-color="#efe4d0"/></linearGradient>
+    <linearGradient id="jar" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdfb"/><stop offset="1" stop-color="#d9c4ae"/></linearGradient>
+    <filter id="shadow" x="-.4" y="-.3" width="1.8" height="1.8"><feDropShadow dx="0" dy="18" stdDeviation="17" flood-color="#38291d" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg)"/>
+  <circle cx="470" cy="142" r="95" fill="#fffdfb" opacity=".36"/>
+  <path d="M95 572c44-108 71-202 80-318m-33 209c-38-12-62-39-75-80m90 12c44-22 70-58 78-108m-114 222c-39-1-70-20-94-56" fill="none" stroke="#59684c" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#8a9c77"><ellipse cx="67" cy="385" rx="37" ry="13" transform="rotate(40 67 385)"/><ellipse cx="239" cy="287" rx="38" ry="13" transform="rotate(-45 239 287)"/><ellipse cx="86" cy="501" rx="39" ry="13" transform="rotate(24 86 501)"/><ellipse cx="214" cy="403" rx="38" ry="13" transform="rotate(-35 214 403)"/></g>
+  <ellipse cx="359" cy="611" rx="155" ry="27" fill="#493626" opacity=".15"/>
+  <g filter="url(#shadow)">
+    <rect x="239" y="337" width="240" height="264" rx="42" fill="url(#jar)"/>
+    <rect x="225" y="306" width="268" height="63" rx="22" fill="#f7f2ec"/>
+    <rect x="245" y="293" width="228" height="32" rx="15" fill="#d9c4ae"/>
+    <rect x="273" y="408" width="172" height="105" rx="9" fill="#fffdfb" opacity=".84"/>
+    <text x="359" y="453" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#38291d" letter-spacing="2">GLOWGUIDE</text>
+    <text x="359" y="481" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#708261" letter-spacing="2">SAMPLE ITEM</text>
+  </g>
+  <text x="300" y="687" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#5e4530" letter-spacing="2">DEMO CATALOG IMAGE</text>
+</svg>

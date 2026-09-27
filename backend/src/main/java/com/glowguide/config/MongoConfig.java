@@ -1,0 +1,10 @@
+package com.glowguide.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
+
+/** Enables @CreatedDate / @LastModifiedDate population across all documents. */
+@Configuration
+@EnableMongoAuditing
+public class MongoConfig {
+}

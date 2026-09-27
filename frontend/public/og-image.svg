@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6f1"/><stop offset=".52" stop-color="#fbe9d9"/><stop offset="1" stop-color="#f4dde3"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#d9a2b4" stop-opacity=".56"/><stop offset="1" stop-color="#d9a2b4" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="100" r="330" fill="url(#glow)"/>
+  <circle cx="1110" cy="520" r="280" fill="#eab996" opacity=".24"/>
+  <text x="92" y="190" fill="#884660" font-family="Arial,sans-serif" font-size="23" letter-spacing="6">PERSONALIZED SKINCARE, EXPLAINED</text>
+  <text x="86" y="310" fill="#301d27" font-family="Georgia,serif" font-size="82">Understand Your Skin.</text>
+  <text x="86" y="408" fill="#301d27" font-family="Georgia,serif" font-size="82">Glow for Life.</text>
+  <text x="92" y="492" fill="#70434f" font-family="Arial,sans-serif" font-size="26">Learn • Discover • Build a routine that fits</text>
+  <path d="M963 254c72-97 157-61 128 11-28 69-130 126-130 126s-102-57-130-126c-29-72 56-108 128-11Z" fill="#a95e7d" opacity=".8"/>
+</svg>

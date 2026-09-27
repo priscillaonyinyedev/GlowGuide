@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/*
+  GlowGuide brand tokens (Tailwind v4 CSS-first theme).
+  Palette: warm cocoa, cream and sand neutrals, botanical green, with restrained
+  rose, plum and peach accents for a soft editorial skincare feel.
+
+  Typography: Fraunces (serif, for headings/display) paired with Inter (sans, for
+  body/UI copy). Fraunces is loaded with a variable optical-size axis in index.html,
+  which is what gives headlines their soft, slightly warm serif character without
+  turning fussy at small sizes.
+*/
+@theme {
+  --font-serif: "Cormorant Garamond", "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "DM Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-mocha-50: #F7F4F1;
+  --color-mocha-100: #EEE7E1;
+  --color-mocha-200: #DDD1C8;
+  --color-mocha-300: #C8B8AC;
+  --color-mocha-400: #A89589;
+  --color-mocha-500: #89756B;
+  --color-mocha-600: #6E5C53;
+  --color-mocha-700: #594940;
+  --color-mocha-800: #44362F;
+  --color-mocha-900: #30251F;
+  --color-mocha-950: #211914;
+
+  --color-cream-50: #FFFEFC;
+  --color-cream-100: #FBF8F3;
+  --color-cream-200: #F4EDE5;
+  --color-cream-300: #EADFD4;
+  --color-cream-400: #DCCDBF;
+
+  --color-beige-100: #F3EAE0;
+  --color-beige-200: #E8D9CA;
+  --color-beige-300: #D7C2AE;
+  --color-beige-400: #BEA48D;
+
+  --color-sage-50: #F2F5EF;
+  --color-sage-100: #E5EBDD;
+  --color-sage-200: #D2DDC7;
+  --color-sage-300: #B6C7A5;
+  --color-sage-400: #96AE7E;
+  --color-sage-500: #789260;
+  --color-sage-600: #5F764D;
+  --color-sage-700: #495B3B;
+  --color-sage-800: #35442C;
+
+  --color-peach-50: #FFF8F1;
+  --color-peach-100: #FBE9D9;
+  --color-peach-200: #F4D3B9;
+  --color-peach-300: #EAB996;
+  --color-peach-400: #D99A78;
+  --color-rose-50: #FBF4F4;
+  --color-rose-100: #F5E4E4;
+  --color-rose-200: #EBD0D1;
+  --color-rose-300: #D7AFB6;
+  --color-rose-400: #C18C98;
+  --color-rose-500: #A96E7E;
+  --color-plum-50: #F7F2F6;
+  --color-plum-100: #ECE0EB;
+  --color-plum-200: #DDC9DC;
+  --color-plum-300: #C4A7C4;
+  --color-plum-400: #A582A5;
+  --color-plum-500: #896889;
+  --color-plum-600: #725572;
+  --color-plum-700: #5C435D;
+  --color-plum-800: #453346;
+  --color-plum-900: #302432;
+
+  --shadow-soft: 0 2px 8px rgba(82, 42, 55, 0.06), 0 8px 24px rgba(82, 42, 55, 0.07);
+  --shadow-lifted: 0 8px 16px rgba(82, 42, 55, 0.08), 0 20px 40px rgba(82, 42, 55, 0.12);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream-100 text-mocha-800 font-sans antialiased;
+    background-image: radial-gradient(ellipse at 8% 4%, rgba(244, 211, 185, 0.18), transparent 34%),
+      radial-gradient(ellipse at 94% 16%, rgba(221, 201, 220, 0.12), transparent 30%);
+    font-size: 1rem;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+  }
+
+  /* Headings: serif, slightly tightened tracking, generous but not loose leading.
+     Sizes use clamp() so headlines scale smoothly between mobile and desktop
+     instead of jumping at breakpoints. */
+  h1, h2, h3, h4 {
+    @apply font-serif text-mocha-900;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 1.7rem + 2.2vw, 3.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.625rem);
+    letter-spacing: -0.015em;
+  }
+
+  h3 {
+    font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  h1 + p, h2 + p, h3 + p {
+    margin-top: 0.75em;
+  }
+
+  /* Body copy that sits in a measured column reads far better than full-width
+     text. Use this on article/blog-style content. */
+  p {
+    max-width: 68ch;
+  }
+
+  p.text-balance-wide,
+  .prose p {
+    max-width: 72ch;
+  }
+
+  /* A lighter, editorial "kicker" style for eyebrow text above headlines. */
+  .eyebrow {
+    @apply text-sage-600;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  a.link-underline {
+    @apply text-mocha-700;
+    text-decoration: underline;
+    text-decoration-color: var(--color-mocha-300);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 200ms ease, color 200ms ease;
+  }
+
+  a.link-underline:hover {
+    @apply text-mocha-900;
+    text-decoration-color: var(--color-mocha-600);
+  }
+
+  small, .text-caption {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    @apply bg-sage-200 text-mocha-900;
+  }
+
+  /* Clear, warm focus ring instead of the harsh default outline - keeps
+     keyboard navigation visible without breaking the editorial look. */
+  :focus-visible {
+    outline: 2px solid var(--color-sage-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Slim, muted scrollbar so long pages (ingredient library, routine builder)
+     stay visually quiet. Falls back silently in browsers without support. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-mocha-300) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-mocha-300);
+    border-radius: 999px;
+  }
+}
+
+@layer utilities {
+  .container-editorial {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+
+  .card-soft {
+    @apply rounded-2xl bg-white shadow-[var(--shadow-soft)] transition-all duration-300 ease-out;
+  }
+
+  .card-soft:hover {
+    @apply shadow-[var(--shadow-lifted)];
+  }
+
+  /* Wraps long-form content (articles, ingredient explainers) in a readable
+     measure with comfortable spacing between blocks. */
+  .prose-editorial {
+    @apply text-mocha-800;
+    max-width: 68ch;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+
+  .prose-editorial > * + * {
+    margin-top: 1.25em;
+  }
+
+  .prose-editorial h2 {
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose-editorial h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.4em;
+  }
+
+  /* Serif display style for hero moments / pull quotes, distinct from
+     standard headings which stay closer to body weight. */
+  .display-serif {
+    @apply font-serif text-mocha-900;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

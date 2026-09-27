@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/*
+  GlowGuide brand tokens (Tailwind v4 CSS-first theme).
+  Palette: dark mocha brown, warm cream, soft beige, sage green, muted neutrals.
+  Deliberately not pink-forward - this is an editorial, apothecary-adjacent look.
+*/
+@theme {
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-mocha-50: #F7F2EC;
+  --color-mocha-100: #EDE2D6;
+  --color-mocha-200: #D9C4AE;
+  --color-mocha-300: #BE9E80;
+  --color-mocha-400: #9C7857;
+  --color-mocha-500: #7A5B40;
+  --color-mocha-600: #5E4530;
+  --color-mocha-700: #493626;
+  --color-mocha-800: #38291D;
+  --color-mocha-900: #2A1E15;
+  --color-mocha-950: #1B140E;
+
+  --color-cream-50: #FFFDFB;
+  --color-cream-100: #FBF7F0;
+  --color-cream-200: #F6EFE3;
+  --color-cream-300: #EFE4D0;
+  --color-cream-400: #E4D4B8;
+
+  --color-beige-100: #F1E9DA;
+  --color-beige-200: #E7DAC3;
+  --color-beige-300: #DAC7A6;
+  --color-beige-400: #C9AF87;
+
+  --color-sage-50: #F3F5F0;
+  --color-sage-100: #E4E9DD;
+  --color-sage-200: #C9D3BC;
+  --color-sage-300: #A9B899;
+  --color-sage-400: #8A9C77;
+  --color-sage-500: #708261;
+  --color-sage-600: #59684C;
+  --color-sage-700: #46523C;
+  --color-sage-800: #37412F;
+
+  --shadow-soft: 0 2px 8px rgba(42, 30, 21, 0.06), 0 8px 24px rgba(42, 30, 21, 0.06);
+  --shadow-lifted: 0 8px 16px rgba(42, 30, 21, 0.08), 0 20px 40px rgba(42, 30, 21, 0.10);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-100 text-mocha-800 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif text-mocha-900;
+  }
+
+  ::selection {
+    @apply bg-sage-200 text-mocha-900;
+  }
+}
+
+@layer utilities {
+  .container-editorial {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+
+  .card-soft {
+    @apply rounded-2xl bg-white shadow-[var(--shadow-soft)] transition-shadow duration-300;
+  }
+
+  .card-soft:hover {
+    @apply shadow-[var(--shadow-lifted)];
+  }
+}
