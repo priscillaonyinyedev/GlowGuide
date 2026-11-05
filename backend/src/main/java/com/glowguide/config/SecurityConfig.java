@@ -65,7 +65,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Public read-only content
                         .requestMatchers(HttpMethod.GET,
-                                "/api/products/**", "/api/brands/**", "/api/categories/**",
+                                "/api/health", "/api/products/**", "/api/brands/**", "/api/categories/**",
                                 "/api/ingredients/**", "/api/articles/**", "/api/reviews/product/**",
                                 "/robots.txt", "/sitemap.xml"
                         ).permitAll()

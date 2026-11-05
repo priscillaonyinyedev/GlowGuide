@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: glowguide-priscilla-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: PORT
+        value: "10000"
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_BASE_URL
+        value: https://glow-guide-lyart-mu.vercel.app
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://glow-guide-lyart-mu.vercel.app
+      - key: SEED_ENABLED
+        value: "true"
+      - key: OAUTH2_ENABLED
+        value: "false"

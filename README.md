@@ -46,6 +46,17 @@ The public **Brands** page links to each brand's shop filter. Routines require a
 
 The skincare assistant currently uses the local ingredient library and recommendation engine. It does not claim to be a medical professional or require an external AI key. Checkout is a demonstration flow and does not collect card data or process payments. Replace demo products and review all legal/support copy before launching a real store.
 
+## Deploy the backend for the Vercel frontend
+
+The Spring Boot API is a separate web service; the Vercel site cannot call a backend running at `localhost`. The root `render.yaml` and `backend/Dockerfile` prepare the API for deployment on Render:
+
+1. Push the project to GitHub, then in Render choose **New → Blueprint** and connect this repository. Render reads `render.yaml` and builds the API from `backend/Dockerfile`.
+2. When Render asks for `MONGODB_URI`, enter your MongoDB Atlas connection string. Keep it private. The Blueprint creates a JWT secret and allows the deployed Vercel frontend origin. The seed catalogue is enabled for the initially empty production database.
+3. After the Render service is live, copy its `onrender.com` URL. In Vercel, open the **frontend** project settings and add `VITE_API_BASE_URL` with the value `https://<your-render-service>.onrender.com/api`. Redeploy the frontend so Vite includes that URL in the production build.
+4. Confirm the API is live by opening `https://<your-render-service>.onrender.com/api/health`; it should return `{"status":"UP"}`. The products endpoint is `https://<your-render-service>.onrender.com/api/products`.
+
+Render injects the service port through `PORT`; Spring Boot reads it automatically. If you deploy on another Java host, set `PORT`, `MONGODB_URI`, `JWT_SECRET`, `FRONTEND_BASE_URL`, `CORS_ALLOWED_ORIGINS`, `SPRING_PROFILES_ACTIVE=prod`, and `SEED_ENABLED=true` in that host's environment.
+
 ## Build commands
 
 From `frontend`, run `npm run build` for a production bundle and `npm run lint` for lint diagnostics. From `backend`, run `mvn package` to package the API.
